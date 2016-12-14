@@ -5,8 +5,8 @@
 
 function setup() {
   createCanvas(700, 700);
-  cells.push(new Cell());
-  cells.push(new Cell());
+  this.cells.push(new Cell());
+  this.cells.push(new Cell());
 }
 
 function draw() {
