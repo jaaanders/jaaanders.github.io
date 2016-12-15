@@ -11,18 +11,18 @@ function setup() {
 
 function draw() {
  background(51);
- for (var i = 0; i < cells.length; i++) {
-   cells[i].move();
-   cells[i].show();
+ for (var i = 0; i < this.cells.length; i++) {
+   this.cells[i].move();
+   this.cells[i].show();
  }
 }
 
 function mousePressed() {
-  for (var i = cells.length-1; i >= 0; i--) {
-    if (cells[i].clicked(mouseX, mouseY)) {
-      cells.push(cells[i].mitosis());
-      cells.push(cells[i].mitosis());
-      cells.splice(i, 1);
+  for (var i = this.cells.length-1; i >= 0; i--) {
+    if (this.cells[i].clicked(mouseX, mouseY)) {
+      this.cells.push(cells[i].mitosis());
+      this.cells.push(cells[i].mitosis());
+      this.cells.splice(i, 1);
     }
   }
 }
