@@ -20,8 +20,8 @@ function draw() {
 function mousePressed() {
   for (var i = this.cells.length-1; i >= 0; i--) {
     if (this.cells[i].clicked(mouseX, mouseY)) {
-      this.cells.push(cells[i].mitosis());
-      this.cells.push(cells[i].mitosis());
+        this.cells.push(this.cells[i].mitosis());
+        this.cells.push(this.cells[i].mitosis());
       this.cells.splice(i, 1);
     }
   }
