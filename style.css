@@ -1,1 +1,7 @@
-H1 {text-align:left; color:green; font: normal 40pt "Arial Black"}
+H1 {
+    text-align: left;
+    color: green;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 60;
+}
