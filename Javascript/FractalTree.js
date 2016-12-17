@@ -2,7 +2,7 @@
 var slider;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(300, 300);
     slider = createSlider(0, TWO_PI, PI / 4, 0.01);
 }
 
