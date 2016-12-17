@@ -195,7 +195,7 @@ a:hover, a:active {
     width: 90%;
 }
 
-@media only scren and (min-width: 150px) and (max-width: 600px)
+@media only screen and (min-width: 150px) and (max-width: 600px)
 {
     .body {
     width: 90%;
@@ -216,6 +216,7 @@ a:hover, a:active {
 
     .mainHeader nav ul li {
     width: 100%;
+    text-align: center;
     }
 
     .mainHeader nav a:link, .mainHeader nav a:visited {
