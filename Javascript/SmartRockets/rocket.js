@@ -1,51 +1,11 @@
-﻿var population;
-var lifespan = 200;
-var lifeP;
-var count = 0;
-var target;
-var maxforce = 0.4;
-
-var rx = 100;
-var ry = 150;
-var rw = 200;
-var rh = 10;
-
-function setup() {
-    createCanvas(400, 300);
-    rocket = new Rocket();
-    population = new Population();
-    lifeP = createP();
-    target = createVector(width / 2, 50);
-
-}
-
-function draw() {
-    background(0);
-    population.run();
-    lifeP.html(count);
-
-    count++;
-    if (count == lifespan) {
-        population.evaluate();
-        population.selection();
-        //population = new Population();
-        count = 0;
-    }
-
-    fill(255);
-    rect(rx, ry, rw, rh);
-
-    ellipse(target.x, target.y, 16, 16);
-}
-
-
-
-function Rocket(dna) {
+﻿function Rocket(dna) {
     this.pos = createVector(width / 2, height);
     this.vel = createVector();
     this.acc = createVector();
     this.completed = false;
     this.crashed = false;
+
+    this.history = [];
 
     if (dna) {
         this.dna = dna;
@@ -72,11 +32,17 @@ function Rocket(dna) {
     }
 
     this.update = function () {
+        var v = createVector(this.x, this.y);
+        this.history.push(v);
+        if (this.history.length > 200) {
+            this.history.splice(0, 1);
+        }
 
         var d = dist(this.pos.x, this.pos.y, target.x, target.y);
         if (d < 10) {
             this.completed = true;
             this.pos = target.copy();
+            score++;
         }
 
         if (this.pos.x > rx && this.pos.x < rx + rw && this.pos.y > ry && this.pos.y < ry + rh) {
@@ -102,14 +68,27 @@ function Rocket(dna) {
     }
 
     this.show = function () {
+        
+       
         push();
         noStroke();
         fill(255, 150);
         translate(this.pos.x, this.pos.y);
         rotate(this.vel.heading());
         rectMode(CENTER);
-        rect(0, 0, 25, 5);
+        rect(0, 0, 10, 10);
         pop();
+
+
+        noFill();
+        beginShape();
+        for (var i = 0; i < this.history.length; i++) {
+            var pos = this.history[i];
+            //ellipse(pos.x, pos.y, 8, 8);
+            vertex(pos.x, pos.y);
+        }
+        endShape();
+        
     }
 
 }
