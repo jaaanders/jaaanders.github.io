@@ -7,9 +7,9 @@ var maxforce = 0.2;
 var scoreP;
 var score;
 
-var rx = 100;
+var rx = 225;
 var ry = 150;
-var rw = 200;
+var rw = 50;
 var rh = 10;
 
 function setup() {
