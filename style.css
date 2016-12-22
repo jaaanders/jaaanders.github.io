@@ -187,7 +187,7 @@ a:hover, a:active {
 }
 
 .javascript {
-    background-color: #FFF;
+    background-color: rgba(153, 153, 153, 0.01);
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;

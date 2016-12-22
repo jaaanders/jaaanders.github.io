@@ -1,6 +1,4 @@
-﻿var gravity = 0.1;
-
-function Particle(x, y) {
+﻿function Particle(x, y) {
     this.x = x;
     this.y = y;
 

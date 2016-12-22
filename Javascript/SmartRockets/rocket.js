@@ -72,7 +72,7 @@
        
         push();
         noStroke();
-        fill(255, 150);
+        fill(255, 255);
         translate(this.pos.x, this.pos.y);
         rotate(this.vel.heading());
         rectMode(CENTER);
@@ -84,7 +84,7 @@
         beginShape();
         for (var i = 0; i < this.history.length; i++) {
             var pos = this.history[i];
-            //ellipse(pos.x, pos.y, 8, 8);
+            ellipse(pos.x, pos.y, 8, 8);
             vertex(pos.x, pos.y);
         }
         endShape();
